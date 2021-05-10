@@ -5,27 +5,26 @@ const baseURL = 'https://api.nasa.gov/planetary/earth/imagery';
 const key = '7xAWzkjCCFHcghBOlvkimEL6oxuzyF9qJaNNKGht';
 
 const Nasa = () => {
-    const [lat, setLat] = useState('');
-    const [long, setLong] = useState('');
+    const [lat, setLat] = useState([]);
+    const [long, setLong] = useState([]);
+    const [date, setDate] = useState([]);
     const [results, setResults] = useState([]);
-
-    
 
     const handleSubmit = (event) => {
         event.preventDefault();
         fetchResults();
     };
     
-    const fetchResults = () => {
-        let url = `${baseURL}?lon=${long}&lat=${lat}&api_key=${key}`;
+    const fetchResults = (e) => {
+        let url = `${baseURL}?lon=${long}&lat=${lat}&date=${date}&api_key=${key}`;
 
         fetch(url)
         .then(res => res.json())
-        .then(data => setResults(data))
+        .then(json => setResults(json))
         .catch(err => console.log(err));
     };
 
-    useEffect(() => {
+    useEffect((e) => {
         fetchResults(); 
      }, [])
 
@@ -33,11 +32,14 @@ const Nasa = () => {
         <div className="main">
             <div className="mainDiv">
                 <form onSubmit={(e) => handleSubmit(e)}>
-                    <span>Enter Latitude</span>
-                    <input type="float" name="setLat" onSubmit={(e) => setLat(e.target.value)} />
+                    <span>Enter Latitude (-90-90): </span>
+                    <input type="number" name="setLat" onChange={(e) => setLat(e.target.value)} />
                     <br />
-                    <span>Enter Longitude</span>
-                    <input type="float" name="setLong" onSubmit={(e) => setLong(e.target.value)} />
+                    <span>Enter Longitude (-180-180): </span>
+                    <input type="number" name="setLong" onChange={(e) => setLong(e.target.value)} />
+                    <br />
+                    <span>Enter Date (YYYY-MM-DD): </span>
+                    <input type="date" name="setDate" onChange={(e) => setDate(e.target.value)} />
                     <br />
                     <button className="submit">Submit</button>
                 </form>
