@@ -12,8 +12,8 @@ const App = () => {
    
     const response = await fetch(url, {
       headers: {
-        'Bearers': YqvoyaNvtoC8N5dA8pD2JA
-        'Conotent-Type': "application/json",
+        Authorization:'Bearers AtTFds-n5sze9A3wI6KpSOCnPnOODl-cdMqBJ7WWTX4UQMPuX2dlxW7Putt1tzYGtQnEL4gtAloptSlfdlApOsgZUHlx3vSkqhH7ZpQtTDxPozNmfUASB4mOx4OaYHYx',
+    
       },
     });
     const json = await response.json();
