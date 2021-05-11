@@ -3,7 +3,7 @@
   }
   
   body {
-    padding: 15px;
+    padding: 20px;
     background-color: white;
   }
   
@@ -17,12 +17,12 @@
   .mainDiv {
     margin: auto;
     width: 50%;
-    padding: 5px;
+    padding: 10px;
   }
   
   .sidebar {
     display: flex;
-    background-color: #53565A;
+    background-color: #6eabfa;
     margin-top: 5px;
   }
   
@@ -31,16 +31,21 @@
   }
   
   .sidebar-list-styling {
-    padding-left: 50px;
-    padding-top:15px;
+    padding-left: 25px;
+    padding-top:10px;
+    padding-bottom:10px;
     width: 15%;
-    background-color: #53565A;
+    background-color: #6eabfa;
     color: white;
   }
   
   .sidebar-list a {
     color: white;
     padding: 0;
+
+    &:hover {
+      color: rgb(235, 4, 4);
+    }
   }
   
   .sidebar-route{
