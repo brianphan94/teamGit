@@ -7,7 +7,7 @@ import {useEffect, useState} from 'react';
 const App = () => {
 
   const [data, setData] = useState();
-  const url= 'https://api.yelp.com/v3/autocomplete/'
+  const url= 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/autocomplete/'
   const initData = async () => {
    
     const response = await fetch(url, {
@@ -17,6 +17,7 @@ const App = () => {
       },
     });
     const json = await response.json();
+    setData(json)
     console.log(json);
 
     setData(json); 
