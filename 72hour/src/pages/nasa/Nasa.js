@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import NasaResults from './NasaResults';
 
 const baseURL = 'https://api.nasa.gov/planetary/earth/imagery';
@@ -18,15 +18,20 @@ const Nasa = () => {
     const fetchResults = (e) => {
         let url = `${baseURL}?lon=${long}&lat=${lat}&date=${date}&api_key=${key}`;
 
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Vary': 'Origin'
+            },
+
+        })
         .then(res => res.json())
-        .then(json => setResults(json))
+        .then(data => setResults(data))
         .catch(err => console.log(err));
     };
 
-    useEffect((e) => {
-        fetchResults(); 
-     }, [])
+    if (results.msg === "No imagery for specified date.") return <h1>No Image found</h1>
 
     return (
         <div className="main">
