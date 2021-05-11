@@ -12,7 +12,7 @@ const App = () => {
    
     const response = await fetch(url, {
       headers: {
-        Bearers: YqvoyaNvtoC8N5dA8pD2JA
+        'Bearers': YqvoyaNvtoC8N5dA8pD2JA
         'Conotent-Type': "application/json",
       },
     });
