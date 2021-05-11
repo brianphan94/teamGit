@@ -41,6 +41,10 @@
   .sidebar-list a {
     color: white;
     padding: 0;
+
+    &:hover { 
+      color: rgb(255, 36, 36);
+    }
   }
   
   .sidebar-route{
